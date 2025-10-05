@@ -11,7 +11,7 @@ const Navbar = () => {
         <div className="flex items-center">
           <a href="/" className="flex items-center space-x-2">
             <img src={logo} alt="BizOra logo" className="w-auto h-8" />
-            <span className="text-xl font-semibold text-gray-800">BizOra</span>
+            <span className="text-2xl font-bold text-gray-800 font-poppins">BizOra</span>
           </a>
 
           {/* Desktop Navigation */}
