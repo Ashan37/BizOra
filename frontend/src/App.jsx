@@ -4,6 +4,7 @@ import Header from './components/header/Header'
 import KPICards from './components/kpi cards/KPICards'
 import Charts from './components/charts/Charts'
 import LiveChart from './components/charts/LiveChart'
+import AllInsights from './components/allinsightpanel/AllInsights'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
      <KPICards/>
      <Charts/>
      <LiveChart/>
+     <AllInsights/>
     </>
   )
 }

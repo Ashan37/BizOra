@@ -29,7 +29,7 @@ const LiveChart = ({ width = 240, height = 80, stroke = '#6366f1', interval = 10
             })
           }
         } catch (err) {
-          // ignore parse errors
+          
         }
       }
 
