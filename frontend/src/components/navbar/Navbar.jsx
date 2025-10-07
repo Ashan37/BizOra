@@ -9,7 +9,7 @@ const Navbar = () => {
       <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
 
         <div className="flex items-center">
-          <a href="/" className="flex items-center space-x-2">
+          <a href="/home" className="flex items-center space-x-2">
             <img src={logo} alt="BizOra logo" className="w-auto h-8" />
             <span className="text-2xl font-bold text-gray-800 font-poppins">BizOra</span>
           </a>
@@ -28,7 +28,7 @@ const Navbar = () => {
           <div className="hidden sm:flex sm:items-center sm:space-x-4">
             <a href="/signin" className="text-sm text-gray-600 hover:text-gray-800">Sign in</a>
             <a
-              href="#signup"
+              href="/signup"
               className="inline-flex items-center px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md bg-amber-400 hover:bg-cyan-700"
             >
               Sign up
