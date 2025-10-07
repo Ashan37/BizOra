@@ -1,23 +1,21 @@
 import { useState } from 'react'
 import './App.css'
-import Header from './components/header/Header'
-import KPICards from './components/kpi cards/KPICards'
-import Charts from './components/charts/Charts'
-import LiveChart from './components/charts/LiveChart'
-import AllInsights from './components/allinsightpanel/AllInsights'
-import RecentActivity from './components/activity section/RecentActivity'
+import { Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import SignIn from './pages/SignIn'
+import SignUp from './pages/SignUp'
 
 function App() {
 
 
   return (
     <>
-    
-     <Header/>
-     <KPICards/>
-     <Charts/>
-     <AllInsights/>
-     <RecentActivity/>
+    <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
+        
+      </Routes>
     </>
   )
 }

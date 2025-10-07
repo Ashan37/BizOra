@@ -7,14 +7,13 @@ const Navbar = () => {
   return (
     <header className="w-full bg-transparent shadow">
       <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
-        {/* Logo */}
+
         <div className="flex items-center">
           <a href="/" className="flex items-center space-x-2">
             <img src={logo} alt="BizOra logo" className="w-auto h-8" />
             <span className="text-2xl font-bold text-gray-800 font-poppins">BizOra</span>
           </a>
 
-          {/* Desktop Navigation */}
           <nav aria-label="Primary" className="hidden sm:ml-8 sm:flex sm:space-x-6 sm:items-center">
             <a href="#" className="px-3 py-2 text-sm font-medium text-gray-900 border-b-2 border-indigo-500">Home</a>
             <a href="#about" className="px-3 py-2 text-sm font-medium text-gray-900">About</a>
@@ -24,10 +23,10 @@ const Navbar = () => {
           </nav>
         </div>
 
-        {/* Desktop Buttons */}
+
         <div className="flex items-center">
           <div className="hidden sm:flex sm:items-center sm:space-x-4">
-            <a href="#signin" className="text-sm text-gray-600 hover:text-gray-800">Sign in</a>
+            <a href="/signin" className="text-sm text-gray-600 hover:text-gray-800">Sign in</a>
             <a
               href="#signup"
               className="inline-flex items-center px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md bg-amber-400 hover:bg-cyan-700"
@@ -36,7 +35,6 @@ const Navbar = () => {
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="sm:hidden">
             <button
               type="button"
@@ -60,7 +58,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <div className={`${open ? 'block' : 'hidden'} sm:hidden`} id="mobile-menu">
         <div className="px-2 pt-2 pb-3 space-y-1">
           <a href="#" className="block px-3 py-2 text-base font-medium text-indigo-700 rounded-md bg-indigo-50">Home</a>
