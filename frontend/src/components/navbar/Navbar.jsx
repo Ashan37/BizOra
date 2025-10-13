@@ -32,19 +32,19 @@ const Navbar = () => {
               About
             </a>
             <a
-              href="#features"
+              href="/features"
               className="px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-800"
             >
               Features
             </a>
             <a
-              href="#pricing"
+              href="/pricing"
               className="px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-800"
             >
               Pricing
             </a>
             <a
-              href="#contact"
+              href="/contact"
               className="px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-800"
             >
               Contact
