@@ -8,10 +8,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserDTO {
-    private int id;
+    private Long id;  // ✅ must match entity type
     private String name;
     private String email;
     private String password;
+
+    public Object getName() {
+        return null;
+    }
 }
-
-

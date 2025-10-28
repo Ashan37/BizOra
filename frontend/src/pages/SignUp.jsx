@@ -1,8 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import Navbar from "../components/navbar/Navbar";
 
 const SignUp = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:8080/api/v1/users", formData);
+      console.log("User registered:", response.data);
+      alert("Signup successful!");
+      setFormData({ name: "", email: "", password: "" });
+    } catch (error) {
+      console.error("Error during signup:", error);
+      alert("Signup failed. Please try again.");
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -15,72 +39,41 @@ const SignUp = () => {
             Create your account
           </p>
 
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={handleSubmit}>
             <div>
-              <label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">
-                Full Name
-              </label>
+              <label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">Full Name</label>
               <input
+                name="name"
                 type="text"
                 placeholder="John Doe"
+                value={formData.name}
+                onChange={handleChange}
                 className="w-full px-4 py-2.5 border border-gray-300 rounded-lg outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition"
               />
             </div>
 
             <div>
-              <label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">
-                Email
-              </label>
+              <label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">Email</label>
               <input
+                name="email"
                 type="email"
                 placeholder="you@example.com"
+                value={formData.email}
+                onChange={handleChange}
                 className="w-full px-4 py-2.5 border border-gray-300 rounded-lg outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition"
               />
             </div>
 
             <div>
-              <label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">
-                Password
-              </label>
+              <label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">Password</label>
               <input
+                name="password"
                 type="password"
                 placeholder="••••••••"
+                value={formData.password}
+                onChange={handleChange}
                 className="w-full px-4 py-2.5 border border-gray-300 rounded-lg outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition"
               />
-            </div>
-
-            <div>
-              <label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">
-                Confirm Password
-              </label>
-              <input
-                type="password"
-                placeholder="••••••••"
-                className="w-full px-4 py-2.5 border border-gray-300 rounded-lg outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition"
-              />
-            </div>
-
-            <div className="flex items-start space-x-2">
-              <input
-                type="checkbox"
-                className="mt-1 rounded text-cyan-600 focus:ring-cyan-500"
-              />
-              <span className="text-sm text-gray-600 dark:text-gray-400">
-                I agree to the{" "}
-                <a
-                  href="#"
-                  className="text-cyan-600 hover:text-cyan-700 hover:underline dark:text-cyan-400"
-                >
-                  Terms of Service
-                </a>{" "}
-                and{" "}
-                <a
-                  href="#"
-                  className="text-cyan-600 hover:text-cyan-700 hover:underline dark:text-cyan-400"
-                >
-                  Privacy Policy
-                </a>
-              </span>
             </div>
 
             <button
@@ -93,10 +86,7 @@ const SignUp = () => {
 
           <p className="mt-6 text-center text-gray-600 dark:text-gray-400">
             Already have an account?{" "}
-            <Link
-              to="/signin"
-              className="font-medium text-cyan-600 hover:text-cyan-700 hover:underline dark:text-cyan-400"
-            >
+            <Link to="/signin" className="font-medium text-cyan-600 hover:text-cyan-700 hover:underline dark:text-cyan-400">
               Sign in
             </Link>
           </p>
